@@ -1,0 +1,30 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col col-md4 offset-md-4">
+      <a routerLink="/add" class="btn btn-dark">New Book</a>
+    </div>
+  </div>
+  <br><br>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let book of books$ | async">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{book.name}}</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{book.author}}</li>
+            <li class="list-group-item">
+              
+              <button type="button" class="btn btn-success" (click)="borrow(book.id)">Borrow</button>
+              <!-- {{book.active ? "Available" : "Not Available"}} -->
+
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-body">
+          <a class="btn btn-dark" [routerLink]="['/update', book.id]">Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

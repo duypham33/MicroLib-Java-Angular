@@ -1,0 +1,22 @@
+<div class="container mt-2">
+    
+    <br>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let book of mybooks$ | async">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{book.name}}</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{book.author}}</li>
+              <li class="list-group-item">
+                
+                <button type="button" class="btn btn-danger" (click)="return(book.id)">Return</button>
+                <!-- {{book.active ? "Available" : "Not Available"}} -->
+  
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

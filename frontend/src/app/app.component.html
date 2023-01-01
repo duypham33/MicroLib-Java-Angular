@@ -1,0 +1,28 @@
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a routerLink="/" style="text-decoration: none">
+      <div class="navbar-brand">{{title}}</div>
+    </a>
+    
+    <a routerLink="/borrowings" style="text-decoration: none" *ngIf="isLogining">
+      <div class="navbar-brand">My Books</div>
+    </a>
+
+    <a (click)="logout()" style="text-decoration: none" *ngIf="isLogining">
+      <div class="navbar-brand">Logout</div>
+    </a>
+  </div>
+</nav>
+
+<div class="container" *ngIf="isLoading; else maincontent">
+  <div class="d-flex align-items-center">
+    <strong>Loading...</strong>
+    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+  </div>
+</div>
+
+<ng-template #maincontent>
+  <router-outlet></router-outlet>
+</ng-template>
+
